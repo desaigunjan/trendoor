@@ -1,0 +1,33 @@
+		html { 
+		  	-webkit-background-size: cover;
+		  	-moz-background-size: cover;
+		  	-o-background-size: cover;
+		  	background-size: cover;
+		}
+		
+		@font-face {
+		  	font-family: theLeagueOf;
+		  	src: url("${pageContext.request.contextPath}/assets/fonts/theleagueof-league-gothic-64c3ede/webfonts/leaguegothic-regular-webfont.woff");
+		}
+
+		body.wait *, body.wait{
+		  	cursor: progress !important;
+		}
+
+		.handCursor{
+			cursor: pointer;
+		} 
+		
+		.logo{
+			font-family:theLeagueOf; 
+			font-size: 100px; 
+			font-weight: bold; 
+			color: white; 
+			text-shadow: 1px 1px 0 #3498db,-1px 1px 0 #3498db, 1px -1px 0 #3498db, -1px -1px 0 #3498db, 0px 1px 0 #3498db, 0px -1px 0 #3498db, -1px 0px 0 #3498db,
+    				1px 0px 0 #3498db, 2px 2px 0 #3498db, -2px 2px 0 #3498db,2px -2px 0 #3498db,-2px -2px 0 #3498db,0px 2px 0 #3498db,0px -2px 0 #3498db,-2px 0px 0 #3498db,
+    				2px 0px 0 #3498db,1px 2px 0 #3498db,-1px 2px 0 #3498db,1px -2px 0 #3498db,-1px -2px 0 #3498db,2px 1px 0 #3498db,-2px 1px 0 #3498db,2px -1px 0 #3498db,-2px -1px 0 #3498db;
+		}
+
+		img.expand { 
+			width: 18em; 
+		}
