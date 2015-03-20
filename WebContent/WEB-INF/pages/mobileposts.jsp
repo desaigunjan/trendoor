@@ -219,7 +219,7 @@
 		.menuButton{
 			bottom:-2px; 
 		  	right: 10px;
-		  	z-index: 1010;
+		  	z-index: 1005;
 		  	position: fixed;
 		}
 		
@@ -328,7 +328,7 @@
 				        					</td>
 				        				</tr>
 										<c:if test="${post.message != null}">
-											<tr><td align="left" colspan="0"><div style="width:95%;"><label class="text"  style=" width: 290px; word-wrap: break-word; font-weight: normal; color: black;">${post.message}</label></div></td></tr>
+											<tr><td align="left" colspan="0" style="padding-left:5px;"><div style="width:95%;"><label class="text"  style="width:95%; word-wrap: break-word; font-weight: normal; color: black;">${post.message}</label></div></td></tr>
 										</c:if>
 										<c:if test="${post.from == 'TW'}">
 											<tr valign="top"><td style="padding-bottom: 5px;" align="left" valign="top">
@@ -380,7 +380,7 @@
 					        					</td>
 					        				</tr>
 											<c:if test="${post.caption != null}">
-												<tr><td align="left" colspan="0"><div style="width:95%;"><label  class="text"  style=" width: 290px; word-wrap: break-word; font-weight: normal; color: black;">${post.caption}</label></div></td></tr>
+												<tr><td align="left" colspan="0" style="padding-left:5px;"><div style="width:95%;"><label  class="text"  style="width:95%; word-wrap: break-word; font-weight: normal; color: black;">${post.caption}</label></div></td></tr>
 											</c:if>
 											<tr valign="top"><td style="padding-bottom: 5px;" align="left" valign="top">
 											<img style="position:relative; right:2%; bottom: 300%;" width="20px" height="20px" src="${pageContext.request.contextPath}/assets/images/instagram.png"></td></tr>

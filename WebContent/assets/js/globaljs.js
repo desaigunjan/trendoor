@@ -14,6 +14,8 @@
 	    	
 	    	if(isMobile == 'Y'){
 	    		$(".postBox").css("width",$(window).width()-15);
+	    		$(".menuBottom").css("width",$(window).width());
+	    		$(".mobileInputField").css("width",$(window).width()-70);
 	    	}
 	    	
 	    	

@@ -11,41 +11,7 @@
     </head>
     
     <style>
-    	.btn {
-		  background: #666666;
-		  background-image: -webkit-linear-gradient(top, #888888, #666666);
-		  background-image: -moz-linear-gradient(top, #888888, #666666);
-		  background-image: -ms-linear-gradient(top, #888888, #666666);
-		  background-image: -o-linear-gradient(top, #888888, #666666);
-		  background-image: linear-gradient(to bottom, #888888, #666666);
-		  -webkit-border-radius: 6 6 6 6;
-		  -moz-border-radius: 6 6 6 6;
-		  border-radius: 6px 6px 6px 6px;
-		  font-family: Georgia;
-		  color: #ffffff;
-		  font-size: 12px;
-		  padding-right: 10px;
-		  padding-left: 10px;
-		  padding-bottom:2px;
-		  padding-top:2px;
-		  text-decoration: none;
-		  border: none;
-		  cursor: pointer;
-		  
-		}
-		
-		.btn:hover {
-		  background: #BBBBBB;
-		  background-image: -webkit-linear-gradient(top, #BBBBBB, #888888);
-		  background-image: -moz-linear-gradient(top, #BBBBBB, #888888);
-		  background-image: -ms-linear-gradient(top, #BBBBBB, #888888);
-		  background-image: -o-linear-gradient(top, #BBBBBB, #888888);
-		  background-image: linear-gradient(to bottom, #BBBBBB, #888888);
-		  text-decoration: none;
-		}
-		
-		
-		
+    	
 		#subjectField{
 			font-size:16px; 
 			width:500px; 
@@ -58,14 +24,17 @@
 		  	padding-left: 8px;
 		}
 		
-		html { 
+		.mainArea { 
 		  	background-image: -webkit-linear-gradient(top, #888888, #666666);
 		  	background-image: -moz-linear-gradient(top, #888888, #666666);
 		  	background-image: -ms-linear-gradient(top, #888888, #666666);
 		  	background-image: -o-linear-gradient(top, #888888, #666666);
 		  	background-image: linear-gradient(to bottom, #888888, #666666);
+		  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#888888', endColorstr='#666666',GradientType=1 );
 		  	
 		  	background-repeat: no-repeat;
+		  	padding-bottom: 10px;
+		  	width: 100%;
 		}
 		
 		@font-face {
@@ -106,12 +75,12 @@
 		}
 		
 		.menuBottom{
-			padding: 5px;
+			padding: 1px;
 			position: fixed;
 			bottom:0;
 			left:0;
 			z-index:1000;
-			border: 1px solid;
+			border-top: 2px solid black;
 			background-color: white;
 
 		}
@@ -189,11 +158,13 @@
 			cursor: pointer;
 			background-color: #EEEEEE;
 		}
+		body { margin: 0px; }
     
     
     </style>
     <body id="mainContent">
-    
+   
+   	<div class="mainArea">
     	<input id="isInstagramPlaceHolder" value="${isInstagram}" style="display: none;"/>
      	<input id="isTwitterPlaceHolder" value="${isTwitter}" style="display: none;"/>
     
@@ -215,10 +186,11 @@
 				</tr>
 			</table>
 			
-			<button class="btn" onClick="toggleMenu()">close</button>
+			<button class="handCursor" onClick="toggleMenu()">close</button>
 		</div>
 		
-		<div>
+		
+		
 			<div align="center">
 				<label class="logo">trendoor</label><!--label class="logo">r </label><label class="logo">e </label><label class="logo">n </label><label class="logo">d </label><label class="logo">o </label><label class="logo">o </label><label class="logo">r </label--> 
 			</div>
@@ -231,7 +203,7 @@
 					</tr>
 				</table>
 				<br/>
-				<label style="font-weight: bold; padding-top:10px; color: white; font-size: 16px;">trending now : </label>
+				<label style="font-weight: bold; padding-top:10px; color: white; font-size: 16px;">trending now in NYC: </label>
 				<div align="center" valign="top" style="padding-top: 5px;">
 					<c:forEach items="${trendingNow}" var="trend">
 						<label style="color: blue; cursor: pointer;" onClick="getPostsFromTrend('${trend}')">${trend}</label>&nbsp;&nbsp;
@@ -240,23 +212,46 @@
 			</div>
 			
 			<div id="mobileMenu" align="center">
-				<label style="font-weight: bold; color: white;">trending now : </label>
+				<label style="font-weight: bold; color: white;">trending now in NYC: </label>
 				<div align="center" style="margin-top: 5px;">
 					<c:forEach items="${trendingNow}" var="trend">
 						<label style="color: blue; cursor: pointer;" onClick="getPostsFromTrend('${trend}')">${trend}</label>&nbsp;&nbsp;
 					</c:forEach>
 				</div>
-				<!--table class="menuBottom" id="searchBox" align="left" cellspacing="0">
+				<table class="menuBottom" id="searchBox" valign="bottom" cellspacing="0">
 					<tr valign="middle">
-						<td align="left" colspan="0"><input style="height:30px;" size="30" onkeypress=" return checkKey(event)" id="subjectFieldMobile" type="text" placeholder=" Search here for trending stories." value="${subject}"></td>
-						<td align="right" colspan="0" style="margin-top: 2px;"><img width="50px" height="30px" onclick="getPosts()" src="${pageContext.request.contextPath}/assets/images/search.png"></td>
+						<td align="left" colspan="0"><input class="mobileInputField" style="height:20px;" onkeypress=" return checkKey(event)" id="subjectFieldMobile" type="text" placeholder=" Search here for trending stories." value="${subject}"></td>
+						<td align="right" valign="bottom" colspan="0" style="margin-top:2px; margin-right: 10px;"><img width="30px" height="30px" onclick="getPosts()" src="${pageContext.request.contextPath}/assets/images/search.png"></td>
 					</tr>
-				</table-->	
+				</table>	
 				
 				
 			</div>
 			
 		</div>
 	</body>
+	<div style="width:100%; font-family:theLeagueOf; font-size: 28px; margin-top: 20px;">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="45%" colspan="0" align="right">
+					<img width="220px" height="100px" src="${pageContext.request.contextPath}/assets/images/trendingBlack.png">
+				</td>
+				<td width="55%" colspan="0" align="left" valign="middle">
+					<table width="100%" valign="top">
+						<tr valign="top">
+							<td colspan="0" align="left" valign="top">
+								<label >Keep up!</label>
+							</td>
+						</tr>
+						<tr valign="top">
+							<td colspan="0" align="left" valign="top">
+								<label >Dont miss out on any stories that is trending in your area.</label>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
 
 </html>
