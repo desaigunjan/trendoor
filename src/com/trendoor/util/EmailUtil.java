@@ -1,10 +1,6 @@
 package com.trendoor.util;
 import java.util.*;
 
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
-
 import com.trendoor.vo.ContactUs;
 
 public class EmailUtil
@@ -26,7 +22,7 @@ public class EmailUtil
       //properties.setProperty("mail.smtp.host", host);
 
       // Get the default Session object.
-      Session session = Session.getDefaultInstance(properties);
+      /*Session session = Session.getDefaultInstance(properties);
 
       try{
          // Create a default MimeMessage object.
@@ -52,6 +48,6 @@ public class EmailUtil
          System.out.println("Sent message successfully....");
       }catch (MessagingException mex) {
          mex.printStackTrace();
-      }
+      }*/
    }
 }

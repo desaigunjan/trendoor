@@ -1,11 +1,7 @@
 package com.trendoor.controllers;
 
 import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Collection;
 import java.util.List;
@@ -14,18 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.trendoor.processors.PostSearchProcessor;
-import com.trendoor.processors.ServiceCaller;
 import com.trendoor.util.TimeUtil;
 import com.trendoor.vo.Location;
 import com.trendoor.vo.Post;
@@ -129,7 +119,7 @@ public class HomeController{
 		 }
 			
 		 PostSearchProcessor searchProcessor = new PostSearchProcessor();
-		 if(StringUtils.isEmpty(place)){
+		 if(place.isEmpty()){
 			 location = searchProcessor.getLocation(ipAddress);
 			 
 			 if(location.getLoc() == null){
@@ -139,13 +129,13 @@ public class HomeController{
 			 if(location.getCity() != null){
 				 place = location.getCity();
 			 }
-			 if(location.getRegion() != null && StringUtils.isEmpty(place)){
+			 if(location.getRegion() != null && place.isEmpty()){
 				 place = location.getRegion();
-			 }else if(location.getRegion() != null && !StringUtils.isEmpty(place)){
+			 }else if(location.getRegion() != null && !place.isEmpty()){
 				 place = place + ", " + location.getRegion();
 			 }
 			 
-			 if(StringUtils.isEmpty(place)){
+			 if(place.isEmpty()){
 				 place = "Srinagar, IN";
 			 }
 		 }
@@ -243,7 +233,7 @@ public class HomeController{
 		return modelAndView;
 	}
 	
-	 @RequestMapping(value = "/subscription", method = RequestMethod.GET, produces = {"text/html"})
+	 /*@RequestMapping(value = "/subscription", method = RequestMethod.GET, produces = {"text/html"})
 	    public HttpServletResponse findByResourceID(HttpServletRequest request, HttpServletResponse response)  throws Exception{
 		 String mode = request.getParameter("hub.mode");
 			String challenge = request.getParameter("hub.challenge");
@@ -255,7 +245,7 @@ public class HomeController{
 			  out.close();
 			return response;
 			
-	 }
+	 }*/
 	 
 	 @RequestMapping(value = "/subscription", method = RequestMethod.POST)
 	 public void findByResourceIDPOST(HttpServletRequest request, HttpServletResponse response)  throws Exception{
