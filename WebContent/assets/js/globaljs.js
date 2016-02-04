@@ -4,6 +4,8 @@
 		
 		var isInstagram = "Y";
 		var isTwitter = "Y";
+		var location;
+		var script;
 	
 		$(document).ready(function(){
 			
@@ -13,13 +15,36 @@
 	    	$(".logoBar").css("left",logoLeft);
 	    	
 	    	if(isMobile == 'Y'){
+	    		$(".textContent").css("width",$(window).width()-75);
 	    		$(".postBox").css("width",$(window).width()-15);
 	    		$(".menuBottom").css("width",$(window).width());
 	    		$(".mobileInputField").css("width",$(window).width()-70);
 	    	}
 	    	
 	    	
+	        if(script == null){
+	        	script = document.createElement('script');
+		        script.type = 'text/javascript';
+		        script.src = "/trendoor/assets/js/jquery.loader.js";
+		        var head = document.getElementsByTagName('head')[0];
+		        head.appendChild(script);
+	        } 
+	    	
+	        //getLocation();
+	    	
 		});
+		
+		function getLocation() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(showPosition);
+		    } else { 
+		       alert("Geolocation is not supported by this browser");
+		    }
+		}
+
+		function showPosition(position) {
+		    alert("Latitude: " + position.coords.latitude + "  Longitude: " + position.coords.longitude);	
+		}
 		
 		function readyScreen(){
 			
@@ -37,8 +62,6 @@
 				$("#desktopMenu").hide();
 			}
 			
-			
-			
 		}
 		
 		function loadMasonary(){
@@ -50,8 +73,15 @@
 			 $('#container').masonry('reloadItems');
 		}
 		
+		function loadWaiter(){
+			 $.loader({
+			        className:"blue-with-image-2",
+			        content:''
+			    });
+		}
+		
 		function getPosts() {
-			$('body').addClass('wait');
+			
 			if(screen.width > 500){
 				subject = document.getElementById("subjectField").value;
 			}else{
@@ -59,19 +89,19 @@
 			}
 			
 			if(validate(subject)){
+				loadWaiter();
 				$.ajax({
-					url: "/trendoor/search?subject="+subject+"&isMobile="+isMobile+"&isInstagram="+isInstagram+"&isTwitter="+isTwitter,
+					url: "/search?subject="+subject+"&isMobile="+isMobile+"&isInstagram="+isInstagram+"&isTwitter="+isTwitter,
 			        data:"",
 			        cache:false,
 			        success: function(data) {
-			        	$('body').removeClass('wait');
 			    		$('#mainContent').html(data);
 			    		
 			    		var logoLeft = ($(window).width()  -  $(".logoBar").width() ) / 2;
 				        $(".logoBar").css("left",logoLeft);
 				        
 				        if(isMobile == 'Y'){
-				    		$(".postBox").css("width",$(window).width()-15);
+				    		$(".postBox").css("width",$(window).width()-30);
 				    	}
 			    		
 			    		readyScreen();
@@ -94,17 +124,19 @@
 				    	$('.linkedUnderlined').click(function(){
 				    		openPost(this.innerHTML);
 				    	});
-			    		
+				    	
 				}
 			});
 			
 		}}
 		
 		function goToHomePage() {
-			$('body').addClass('wait');
+			loadWaiter();
+			
+			location = "";
 			
 			$.ajax({
-		        url: "/trendoor/welcome?isInstagram="+isInstagram+"&isTwitter="+isTwitter,
+		        url: "/trend?isInstagram="+isInstagram+"&isTwitter="+isTwitter+"&location="+location,
 		        data:"",
 		        cache:false,
 		        success: function(data) {
@@ -114,9 +146,15 @@
 		    		
 		    		isInstagram = document.getElementById("isInstagramPlaceHolder").value;
 		    		isTwitter = document.getElementById("isTwitterPlaceHolder").value;
-		    		
+		    		location = document.getElementById("locationPlaceHolder").value;
 		    		readyScreen();
 		    		setSwitches();
+		    		
+		    		var url = "/trendoor/assets/js/jquery.loader.js";
+		    		$.getScript( url, function() {
+		    			
+		    			
+		    		});
 		        }
 			});
 			
@@ -125,22 +163,22 @@
 
 		function getPostsFromTrend(trend){
 			subject = trend;
-			$('body').addClass('wait');
+			
+			loadWaiter();
 			if(validate(subject)){
 				$.ajax({
 			
-			        url: "/trendoor/search?subject="+subject+"&isMobile="+isMobile+"&isInstagram="+isInstagram+"&isTwitter="+isTwitter,
+			        url: "/search?subject="+subject+"&isMobile="+isMobile+"&isInstagram="+isInstagram+"&isTwitter="+isTwitter,
 			        data:"",
 			        cache:false,
 			        success: function(data) {
-			        	$('body').removeClass('wait');
 			    		$('#mainContent').html(data);
 			    		
 			    		var logoLeft = ($(window).width()  -  $(".logoBar").width() ) / 2;
 				        $(".logoBar").css("left",logoLeft);
 				        
 				        if(isMobile == 'Y'){
-				    		$(".postBox").css("width",$(window).width()-15);
+				    		$(".postBox").css("width",$(window).width()-30);
 				    	}
 				        
 			    		readyScreen();
@@ -164,14 +202,13 @@
 				    		openPost(this.innerHTML);
 				    	});
 				    	
-				    	
 			    	}
 				});
 			}
 		}
 		
 		function validate(){
-			
+			alert(2);
 			if(subject.trim() == ""){
 				alert("C'mon, give me something to work with!");
 				return false;
@@ -203,7 +240,7 @@
 		function toggleFeed(from, value){
 			
 			$.ajax({
-		        url: "/trendoor/feedPreference?from="+from+"&value="+value+"&isMobile="+isMobile,
+		        url: "/feedPreference?from="+from+"&value="+value+"&isMobile="+isMobile,
 		        data:"",
 		        cache:false,
 		        success: function(data) {
@@ -216,7 +253,7 @@
 				
 				var x = document.getElementById("twitterSwitch");
 				if(isTwitter == "Y"){
-					x.setAttribute('src', '/trendoor/assets/images/off.png');
+					x.setAttribute('src', '/assets/images/off.png');
 					isTwitter = "N";
 					
 					/*$('.twPostBox').css("display","none");
@@ -228,7 +265,7 @@
 					
 				}
 				else if(isTwitter = "N"){
-					x.setAttribute('src', '/trendoor/assets/images/on.png');
+					x.setAttribute('src', '/assets/images/on.png');
 					isTwitter = "Y";
 					
 					/*$('.twPostBox').each(function(){
@@ -246,12 +283,12 @@
 			else if(from == 'IN'){
 				var x = document.getElementById("instaSwitch");
 				if(isInstagram == "Y"){
-					x.setAttribute('src', '/trendoor/assets/images/off.png');
+					x.setAttribute('src', '/assets/images/off.png');
 					isInstagram = "N";
 					
 				}
 				else if(isInstagram = "N"){
-					x.setAttribute('src', '/trendoor/assets/images/on.png');
+					x.setAttribute('src', '/assets/images/on.png');
 					isInstagram = "Y";
 					
 				}
@@ -263,18 +300,18 @@
 			
 				var x = document.getElementById("twitterSwitch");
 				if(isTwitter == "Y"){
-					x.setAttribute('src', '/trendoor/assets/images/on.png');
+					x.setAttribute('src', '/assets/images/on.png');
 				}
 				else if(isTwitter = "N"){
-					x.setAttribute('src', '/trendoor/assets/images/off.png');
+					x.setAttribute('src', '/assets/images/off.png');
 					
 				}
 				var y = document.getElementById("instaSwitch");
 				if(isInstagram == "Y"){
-					y.setAttribute('src', '/trendoor/assets/images/on.png');
+					y.setAttribute('src', '/assets/images/on.png');
 				}
 				else if(isInstagram = "N"){
-					y.setAttribute('src', '/trendoor/assets/images/off.png');
+					y.setAttribute('src', '/assets/images/off.png');
 					
 				}
 		}
@@ -282,15 +319,23 @@
 		function  getHashTags(id){
 			
 			string = document.getElementById(id).innerHTML;
-			var array = string.split(' ', 50);
+			var array = string.split(' ', 200);
 
 			var text = "";
 			for (i = 0; i < array.length; i++) {
-			    if( array[i].indexOf("#") > -1 && array[i].indexOf("?") == -1){
+				if( array[i].indexOf("#") > -1 && array[i].indexOf("?") == -1 && array[i].length < 50){
 			        text = text + " " + "<a class='linked' onClick='getPostsFromTrend("+array[i]+")'>" + array[i] + "</a> ";
 			    }
 			    else if(array[i].indexOf("http://") > -1){
-			    	text = text + " " + "<a class='linkedUnderlined' onClick='openPost("+array[i]+")'>" + array[i] + "</a> ";
+			    	if(i != 0){
+			    		if(i == array.length-1)
+			    			text = text + " " + "<a class='linkedUnderlined' onClick='openPost("+array[i]+")'>" + array[i] + "</a> ";
+			    		else
+			    			text = text + " " + "<a class='linkedUnderlined' onClick='openPost("+array[i]+")'>" + array[i] + "</a>";
+			    	}
+			    	else if(i == 0){
+			    		text = text + " " + "<a class='linkedUnderlined' onClick='openPost("+array[i]+")'>" + array[i] + "</a>";
+			    	}
 			    }
 			    else if(array[i].indexOf("@") > -1 && array[i-1] == 'RT' ){
 			    	text = text + "" + "<a class='boldFont'>" + array[i-1] + " " + array[i] + "</a> ";
@@ -298,7 +343,7 @@
 			    else if(array[i] == 'RT'){
 			    	//do nothing, will take care in next loop.
 			    }
-			    else{
+			    else{//if(array[i].length < 50)
 			     text = text +" " + array[i]   
 			    }
 			    

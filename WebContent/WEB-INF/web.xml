@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>TrenDoor</display-name>
+  <welcome-file-list>
+  	<welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
   <servlet>
   	<servlet-name>spring-dispatcher</servlet-name>
   	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -9,18 +12,31 @@
   <servlet-mapping>
   	<servlet-name>spring-dispatcher</servlet-name>
   	<url-pattern>/welcome</url-pattern>
+  	<url-pattern>/giraffe/*</url-pattern>
   	<url-pattern>/search/*</url-pattern>
   	<url-pattern>/home/*</url-pattern>
+  	<url-pattern>/trend/*</url-pattern>
+  	<url-pattern>/birthdaylike/*</url-pattern>
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>spring1-dispatcher</servlet-name>
-  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>spring1-dispatcher</servlet-name>
-  	<url-pattern>/subscription/*</url-pattern>
-  </servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
   
 </web-app>

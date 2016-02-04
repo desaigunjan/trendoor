@@ -39,10 +39,10 @@
 		}
 		
 		.postBox{
-		   background: white;
-		  -webkit-border-radius: 4;
-		  -moz-border-radius: 4;
-		  border-radius: 4px;
+		  background: white;
+		  -webkit-border-radius: 4 4 4 4;
+		  -moz-border-radius: 4 4 4 4;
+		  border-radius: 4px 4px 4px 4px;
 		  font-family: Georgia;
 		  color: #000000;
 		  font-size: 19px;
@@ -51,17 +51,18 @@
 		  font-size: 14px;
 		  /*width: 300px;
 		 /* margin: 15px;
-		  border: 1px solid black;
-		  /*padding-top: 5px 5px 5px 5px;*/
+		  border: 1px solid black;*/
+		  padding: 5px 5px 5px 5px;
 		  /*align: left;*/
+		  margin-left:10px;
 		  float: left 
 		
 		}
 		
 		.postImage{
-			-webkit-border-radius: 4;
-		  -moz-border-radius: 4;
-		  border-radius: 4px;
+		  -webkit-border-radius: 4 4 4 4;
+		  -moz-border-radius: 4 4 4 4;
+		  border-radius: 4px 4px 4px 4px;
 		  z-index: -1;
 		}
 		
@@ -78,12 +79,12 @@
 		}
 		
 		html { 
-		 	background-color: #C8C8C8;
-		  	background-image: -webkit-linear-gradient(top, #777777, #666666);
-		  	background-image: -moz-linear-gradient(top, #777777, #666666);
-		  	background-image: -ms-linear-gradient(top, #777777, #666666);
-		  	background-image: -o-linear-gradient(top, #777777, #666666);
-		  	background-image: linear-gradient(to bottom, #777777, #666666);
+		 	background-color: #ffffff;
+		  	background-image: -webkit-linear-gradient(top, #C8DDFA, #C8DDFA);
+		  	background-image: -moz-linear-gradient(top, #C8DDFA, #C8DDFA);
+		  	background-image: -ms-linear-gradient(top, #C8DDFA, #C8DDFA);
+		  	background-image: -o-linear-gradient(top, #C8DDFA, #C8DDFA);
+		  	background-image: linear-gradient(to bottom, #C8DDFA, #C8DDFA);
 		}
 		
 		@font-face {
@@ -119,11 +120,11 @@
 		  	-moz-border-radius: 6 6 0 0;
 		  	border-radius: 6px 6px 0px 0px;
 		  	background-color: black;
-		  	background-image: -webkit-linear-gradient(top, #000000, #999999);
-		  	background-image: -moz-linear-gradient(top, #000000, #999999);
-		  	background-image: -ms-linear-gradient(top, #000000, #999999);
-		  	background-image: -o-linear-gradient(top, #000000, #999999);
-		  	background-image: linear-gradient(to bottom, #000000, #999999);
+		  	background-image: -webkit-linear-gradient(bottom, #677091, #37426E);
+		  	background-image: -moz-linear-gradient(bottom, #677091, #37426E);
+		  	background-image: -ms-linear-gradient(bottom, #677091, #37426E);
+		  	background-image: -o-linear-gradient(bottom, #677091, #37426E);
+		  	background-image: linear-gradient(to top, #677091, #37426E);
 		}
 
 		img.expand { 
@@ -163,11 +164,11 @@
 		  	z-index: 1000;
 		  	width:100%;
 		  	
-		  	background-image: -webkit-linear-gradient(top, #505050, #202020);
-		  	background-image: -moz-linear-gradient(top, #505050, #202020);
-		  	background-image: -ms-linear-gradient(top, #505050, #202020);
-		  	background-image: -o-linear-gradient(top, #505050, #202020);
-		  	background-image: linear-gradient(to bottom, #505050, #202020);
+		  	background-image: -webkit-linear-gradient(top, #37426E, #37426E);
+		  	background-image: -moz-linear-gradient(top, #37426E, #37426E);
+		  	background-image: -ms-linear-gradient(top, #37426E, #37426E);
+		  	background-image: -o-linear-gradient(top, #37426E, #37426E);
+		  	background-image: linear-gradient(to bottom, #37426E, #37426E);
 		  	
 		  	
 		}
@@ -193,8 +194,7 @@
 		  	padding: 10px;
 		  	padding-right: 10px;
 		  	
-		  	font-weight: bold;
-		  	font-family: Georgia;
+		  	font-family: 'Montserrat', sans-serif;
 		    color: #000000;
 		    font-size: 12px;
 		  	
@@ -241,9 +241,9 @@
     	}
     	
     	.linkedUnderlined{
-    		color: blue;
+    		color: gray;
     		cursor: pointer;
-    		text-decoration: underline;
+    		
     	}
     	
     	.boldFont{
@@ -255,8 +255,10 @@
     
 	
 	<body id="mainContent">
+	
 		<script src="${pageContext.request.contextPath}/assets/js/masonry.pkgd.min.js"></script>
-		
+		<script src="${pageContext.request.contextPath}/assets/js/jquery.blockUI.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<div class="menuButton" title="Menu">
 			<img width="40px" height="35px" onClick="toggleMenu()" src="${pageContext.request.contextPath}/assets/images/menu.png">
 		</div>	
@@ -332,7 +334,7 @@
 										</c:if>
 										<c:if test="${post.from == 'TW'}">
 											<tr valign="top"><td style="padding-bottom: 5px;" align="left" valign="top">
-											<img style="border: 1px solid gray; position:relative; right:2%; bottom: 300%;" width="20px" height="20px" src="${pageContext.request.contextPath}/assets/images/twitter.png"></td></tr>
+											<img style="position:relative; -webkit-border-radius: 2 2 2 2; -moz-border-radius: 2 2 2 2;border-radius: 2px 2px 2px 2px; right:3%; bottom: 320%;" width="20px" height="20px" src="${pageContext.request.contextPath}/assets/images/twitter.png"></td></tr>
 										</c:if>
 									</table>
 									</c:if>
@@ -383,7 +385,7 @@
 												<tr><td align="left" colspan="0" style="padding-left:5px;"><div style="width:95%;"><label  class="text"  style="width:95%; word-wrap: break-word; font-weight: normal; color: black;">${post.caption}</label></div></td></tr>
 											</c:if>
 											<tr valign="top"><td style="padding-bottom: 5px;" align="left" valign="top">
-											<img style="position:relative; right:2%; bottom: 300%;" width="20px" height="20px" src="${pageContext.request.contextPath}/assets/images/instagram.png"></td></tr>
+											<img style="position:relative; right:3%; bottom: 320%;" width="20px" height="20px" src="${pageContext.request.contextPath}/assets/images/instagram.png"></td></tr>
 										</table>
 								</c:if>
 			        		</div>
@@ -391,5 +393,5 @@
 	       	</c:forEach>
 	     </div>
 	</body>
-
+	<div id='waiterDiv' align='center' style=' padding-top:15px; display:none;'> <img src='/trendoor/assets/images/ajax-loader.gif'/> </div>
 </html>

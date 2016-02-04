@@ -16,7 +16,7 @@ public class Post implements Comparable<Post>{
 	private String  id; 
 	private Date timestamp;
 	private String screenName;
-	private String videoLink;
+	private String mediaLink;
 	private String type;
 	
 	public String getPicture() {
@@ -85,11 +85,11 @@ public class Post implements Comparable<Post>{
 	public void setScreenName(String screenName) {
 		this.screenName = screenName;
 	}
-	public String getVideoLink() {
-		return videoLink;
+	public String getMediaLink() {
+		return mediaLink;
 	}
-	public void setVideoLink(String videoLink) {
-		this.videoLink = videoLink;
+	public void setMediaLink(String mediaLink) {
+		this.mediaLink = mediaLink;
 	}
 	public String getType() {
 		return type;

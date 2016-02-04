@@ -12,7 +12,7 @@ public class InstagramPost {
 	private InstagramMediaEntity images;
 	private InstagramMediaEntity videos;
 	private Caption caption;
-	private PostUser user;
+	private InstagramPostUser user;
 	private ArrayList<String> tags;
 	
 	public String getAttribution() {
@@ -45,10 +45,10 @@ public class InstagramPost {
 	public void setImages(InstagramMediaEntity images) {
 		this.images = images;
 	}
-	public PostUser getUser() {
+	public InstagramPostUser getUser() {
 		return user;
 	}
-	public void setUser(PostUser user) {
+	public void setUser(InstagramPostUser user) {
 		this.user = user;
 	}
 	public String getId() {

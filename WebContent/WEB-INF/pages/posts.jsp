@@ -50,57 +50,21 @@
 		  font-size: 14px;
 		  width: 300px;
 		  margin: 15px;
-		  border: 1px solid black;
-		  /*padding-top: 5px 5px 5px 5px;*/
+		  /*border: 1px solid black;
+		  box-shadow: 5px 5px 5px #888888;
+		  /* 5px 5px 5px;*/
 		  /*align: left;*/
-		  float: left 
-		
-		}
-		
-		.igPostBox{
-		   background: white;
-		  -webkit-border-radius: 4;
-		  -moz-border-radius: 4;
-		  border-radius: 4px;
-		  font-family: Georgia;
-		  color: #000000;
-		  font-size: 19px;
-		  
-		  font-family: Georgia;
-		  font-size: 14px;
-		  width: 300px;
-		  margin: 15px;
-		  border: 1px solid black;
-		  /*padding-top: 5px 5px 5px 5px;*/
-		  /*align: left;*/
-		  float: left 
-		
-		}
-		
-		.twPostBox{
-		   background: white;
-		  -webkit-border-radius: 4;
-		  -moz-border-radius: 4;
-		  border-radius: 4px;
-		  font-family: Georgia;
-		  color: #000000;
-		  font-size: 19px;
-		  
-		  font-family: Georgia;
-		  font-size: 14px;
-		  width: 300px;
-		  margin: 15px;
-		  border: 1px solid black;
-		  /*padding-top: 5px 5px 5px 5px;*/
-		  /*align: left;*/
-		  float: left 
-		
+		  float: left;
+		  min-height: 30px;
+		  margin-top: 5px;
+		  margin-bottom: 5px;
+		  padding-top: 5px;
 		}
 		
 		.postImage{
-			-webkit-border-radius: 4;
-		  -moz-border-radius: 4;
-		  border-radius: 4px;
+		  -webkit-border-radius: 4 4 4 4;
+		  -moz-border-radius: 4 4 4 4;
+		  border-radius: 4px 4px 4px 4px;
 		  z-index: -1;
 		}
 		
@@ -117,12 +81,12 @@
 		}
 		
 		html { 
-		 	background-color: #C8C8C8;
-		  	background-image: -webkit-linear-gradient(top, #777777, #666666);
-		  	background-image: -moz-linear-gradient(top, #777777, #666666);
-		  	background-image: -ms-linear-gradient(top, #777777, #666666);
-		  	background-image: -o-linear-gradient(top, #777777, #666666);
-		  	background-image: linear-gradient(to bottom, #777777, #666666);
+		 	background-color: #ffffff;
+		  	background-image: -webkit-linear-gradient(top, #C8DDFA, #C8DDFA);
+		  	background-image: -moz-linear-gradient(top, #C8DDFA, #C8DDFA);
+		  	background-image: -ms-linear-gradient(top, #C8DDFA, #C8DDFA);
+		  	background-image: -o-linear-gradient(top, #C8DDFA, #C8DDFA);
+		  	background-image: linear-gradient(to bottom, #C8DDFA, #C8DDFA);
 		}
 		
 		@font-face {
@@ -157,11 +121,11 @@
 		  	-moz-border-radius: 4 4 4 4;
 		  	border-radius: 0px 0px 4px 4px;
 		  	background-color: black;
-		  	background-image: -webkit-linear-gradient(top, #999999, #000000);
-		  	background-image: -moz-linear-gradient(top, #999999, #000000);
-		  	background-image: -ms-linear-gradient(top, #999999, #000000);
-		  	background-image: -o-linear-gradient(top, #999999, #000000);
-		  	background-image: linear-gradient(to bottom, #999999, #000000);
+		  	background-image: -webkit-linear-gradient(top, #677091, #37426E);
+		  	background-image: -moz-linear-gradient(top, #677091, #37426E);
+		  	background-image: -ms-linear-gradient(top, #677091, #37426E);
+		  	background-image: -o-linear-gradient(top, #677091, #37426E);
+		  	background-image: linear-gradient(to bottom, #677091, #37426E);
 		  	cursor:pointer;
 		}
 
@@ -177,6 +141,10 @@
 			z-index:1000;
 			border: 1px solid;
 			background-color: white;
+			
+			font-family: 'Montserrat', sans-serif;
+		    color: #000000;
+		    font-size: 12px;
 			
 		}
 		
@@ -205,11 +173,11 @@
 		  	width:99%;
 		  	padding-left: 10px;
 		  	
-		  	background-image: -webkit-linear-gradient(top, #505050, #202020);
-		  	background-image: -moz-linear-gradient(top, #505050, #202020);
-		  	background-image: -ms-linear-gradient(top, #505050, #202020);
-		  	background-image: -o-linear-gradient(top, #505050, #202020);
-		  	background-image: linear-gradient(to bottom, #505050, #202020);
+		  	background-image: -webkit-linear-gradient(top, #37426E, #37426E);
+		  	background-image: -moz-linear-gradient(top, #37426E, #37426E);
+		  	background-image: -ms-linear-gradient(top, #37426E, #37426E);
+		  	background-image: -o-linear-gradient(top, #37426E, #37426E);
+		  	background-image: linear-gradient(to bottom, #37426E, #37426E);
 		  	
 		  	
 		}
@@ -235,8 +203,7 @@
 		  	padding: 10px;
 		  	padding-right: 10px;
 		  	
-		  	font-weight: bold;
-		  	font-family: Georgia;
+		  	font-family: 'Montserrat', sans-serif;
 		    color: #000000;
 		    font-size: 12px;
 		  	
@@ -285,21 +252,22 @@
     	}
     	
     	.linkedUnderlined{
-    		color: blue;
+    		color: gray;
     		cursor: pointer;
-    		text-decoration: underline;
     	}
     	
     	.boldFont{
     		font-weight: bold;
     	}
+    	
     </style>
     
 	
 	<body id="mainContent">
 	<div>
 		<script src="${pageContext.request.contextPath}/assets/js/masonry.pkgd.min.js"></script>
-		
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script src="${pageContext.request.contextPath}/assets/js/jquery.loader.js"></script>
 		<div class="logoBar" align="center">
 			<label class="logoTopBar" onclick="goToHomePage()">t r e n d o o r</label>
 		</div>
@@ -338,12 +306,11 @@
 		<div id="container" align="center" style="margin-left:150px; margin-top: 50px;">
 	    	
 	        <c:forEach  items="${results}" var="post">
-	        			<div class="item">
+	        			<div class="item" >
 			        		<c:if test="${post.from == 'TW'}">
-			        		<div name="twBox" class="twPostBox">
-								
+			        		<div class="postBox">
 									<c:if test="${post.picture != null}">
-			        					<tr><td align="center" colspan="0" width="300px" height="305px"><img class="postImage" width="300px" height="305px" src="${post.picture}"></td></tr>
+			        					<tr><td align="center" colspan="0" width="290px" height="305px"><img class="postImage" width="290px" height="305px" src="${post.picture}"></td></tr>
 									</c:if>
 			        				<table cellspacing="0" >
 			        				<tr valign="top"><td align="left" colspan="0" width="290px" valign="top">
@@ -375,25 +342,25 @@
 										<tr><td align="left" colspan="0"><div style="width:290px;"><label class="text"  style=" width: 290px; word-wrap: break-word; font-weight: normal; color: black;">${post.message}</label></div></td></tr>
 									</c:if>
 									<c:if test="${post.from == 'TW'}">
-										<tr valign="top"><td style="padding-bottom: 5px;" align="left" valign="top">
-										<img style="border: 1px solid gray; position:relative; right:3%; bottom: 300%;" width="20px" height="20px" src="${pageContext.request.contextPath}/assets/images/twitter.png"></td></tr>
+										<tr valign="top"><td align="left" valign="top">
+										<img style="position:relative; -webkit-border-radius: 2 2 2 2; -moz-border-radius: 2 2 2 2;border-radius: 2px 2px 2px 2px; right:3%; bottom: 320%;" width="20px" height="20px" src="${pageContext.request.contextPath}/assets/images/twitter.png"></td></tr>
 									</c:if>
 								</table>
 								</div>
 								</c:if>
 								
 								<c:if test="${post.from == 'IG'}">
-								<div class="igPostBox">
+								<div class="postBox">
 									<c:if test="${post.type == 'image'}">
 										<c:if test="${post.picture != null}">
-				        					<tr><td align="center" colspan="0" width="300px" height="305px"><img class="postImage"  width="300px" height="305px" src="${post.picture}"></td></tr>
+				        					<tr><td align="center" colspan="0" width="290px" height="305px"><img class="postImage" width="290px" height="305px" src="${post.picture}"></td></tr>
 										</c:if>
 									</c:if>
 									<c:if test="${post.type == 'video'}">
 										<c:if test="${post.videoLink != null}">
 				        					<tr>
-				        						<td align="center" colspan="0" width="300px" height="305px">
-				        						<video width="300px" height="305px" controls>
+				        						<td align="center" colspan="0" width="290px" height="300px">
+				        						<video width="290px" height="300px" controls>
   													<source src="${post.videoLink}" type="video/mp4">
   												</video>
   												</td>
@@ -429,8 +396,8 @@
 									<c:if test="${post.caption != null}">
 										<tr><td align="left" colspan="0"><div style="width:290px;"><label  class="text"  style=" width: 290px; word-wrap: break-word; font-weight: normal; color: black;">${post.caption}</label></div></td></tr>
 									</c:if>
-									<tr valign="top"><td style="padding-bottom: 5px;" align="left" valign="top">
-									<img style="position:relative; right:3%; bottom: 300%;" width="20px" height="20px" src="${pageContext.request.contextPath}/assets/images/instagram.png"></td></tr>
+									<tr valign="top"><td align="left" valign="top">
+									<img style="position:relative; right:3%; bottom: 320%;" width="20px" height="20px" src="${pageContext.request.contextPath}/assets/images/instagram.png"></td></tr>
 								</table>
 								</div>
 								</c:if>
@@ -439,5 +406,6 @@
 	     </div>
 	     </div>
 	</body>
-
+	<div id='waiterDiv' align='center' style=' padding-top:15px; display:none;'> <img src='/trendoor/assets/images/ajax-loader.gif'/> </div>
 </html>
+

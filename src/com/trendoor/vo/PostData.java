@@ -14,6 +14,7 @@ public class PostData {
 	boolean fromFacebook = false;
 	boolean fromInstagram = false;
 	boolean fromTwitter = false;
+	boolean fromVine = false;
 	
 	
 	public ArrayList<Post> getPostList() {
@@ -45,6 +46,12 @@ public class PostData {
 	}
 	public void setFromTwitter(boolean fromTwitter) {
 		this.fromTwitter = fromTwitter;
+	}
+	public boolean isFromVine() {
+		return fromVine;
+	}
+	public void setFromVine(boolean fromVine) {
+		this.fromVine = fromVine;
 	}
 	public boolean isSuccess() {
 		return isSuccess;

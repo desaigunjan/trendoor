@@ -23,33 +23,33 @@ public class TimeUtil {
 
 		if(diffDays != 0){
 			if(diffDays == 1){
-				timeSincePost = diffDays + " day ago.";
+				timeSincePost = diffDays + " day ago";
 			}else{
-				timeSincePost = diffDays + " days ago.";
+				timeSincePost = diffDays + " days ago";
 			}
 			
 			return timeSincePost;
 		}
 		if(diffHours != 0){
 			if(diffHours == 1){
-				timeSincePost = diffHours + " hour ago.";
+				timeSincePost = diffHours + " hour ago";
 			}else{
-				timeSincePost = diffHours + " hours ago.";
+				timeSincePost = diffHours + " hours ago";
 			}
 			
 			return timeSincePost;
 		}
 		if(diffMinutes != 0){
 			if(diffMinutes == 1){
-				timeSincePost = diffMinutes + " minute ago.";
+				timeSincePost = diffMinutes + " minute ago";
 			}else{
-				timeSincePost = diffMinutes + " minutes ago.";
+				timeSincePost = diffMinutes + " minutes ago";
 			}
 			
 			return timeSincePost;
 		}
 		if(diffSeconds != 0){
-			timeSincePost = " just now.";
+			timeSincePost = " just now";
 			return timeSincePost;
 		}
 		

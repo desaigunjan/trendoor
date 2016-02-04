@@ -4,11 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class PostUser {
 
-	@SerializedName("full_name")
 	String name;
-	@SerializedName("username")
 	String screenName;
-	@SerializedName("profile_picture")
 	String profilePicture;
 	
 	public String getName() {
